@@ -1,0 +1,2 @@
+This project is about creating a website for a fictional company called 'Techium'
+The purpose of this project is to practice utilizing several different HTML tags to create a cohesive, structured static web page.
