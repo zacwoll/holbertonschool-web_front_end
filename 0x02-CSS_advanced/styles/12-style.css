@@ -12,7 +12,7 @@
     --font-size-medium: 1.6rem;
     --font-size-large: 1.8rem;
     --font-size-x-large: 2.3rem;
-    --font-size-x-large: 4.8rem;
+    --font-size-xx-large: 4.8rem;
     --font-weight-regular: 400;
     --font-weight-bold: 700;
 
@@ -23,7 +23,7 @@
     --section-header-align: center;
     --section-tagline-transform: uppercase;
     --section-title-margin: 0;
-    --section-title-color: var(--color-black);
+    --section-title-color: --color-black;
 }
 
 html {
@@ -31,8 +31,12 @@ html {
     font-size: 62.5%;
 }
 
-body {
+body a {
     color: var(--color-black);
+}
+
+a {
+    text-decoration: none;
 }
 
 body {
@@ -57,6 +61,14 @@ h1 h2 h3 h4 h5 h6 {
 
 .card-category .section-tagline {
     color: var(--color-primary);
+}
+
+.section-title {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-xx-large);
+    font-weight: var(--font-weight-bold);
+    margin: var(--section-title-margin);
+    color: var(--section-title-color);
 }
 
 .section-tagline {
