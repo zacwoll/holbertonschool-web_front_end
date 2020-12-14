@@ -146,7 +146,7 @@ ul.row {
 }
 
 .nav .nav-link::before {
-    content: normal;
+    content: empty;
     position: absolute;
     top: 0;
     left: 0;
@@ -172,7 +172,7 @@ ul.row {
     padding: var(--section-padding);
 }
 
-.section-header{
+.section-header {
     text-align: var(--section-header-align);
     padding: var(--section-header-padding);
 }
