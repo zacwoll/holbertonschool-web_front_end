@@ -141,7 +141,7 @@ ul.row {
     padding: .5rem 1rem .5rem 1rem;
 }
 
-.nav .nav-link:hover{
+.nav .nav-link:hover {
     color: var(--nav-item-link-hover);
 }
 
