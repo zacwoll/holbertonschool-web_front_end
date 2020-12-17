@@ -22,7 +22,7 @@ h1 {
     }
     @include small {
         font-size: 14px;
-        .small {
+        &.small {
             color: #1D1D1D;
         }
     }
