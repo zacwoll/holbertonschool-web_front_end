@@ -1,9 +1,10 @@
 // 16. Sort
-$sort-order: a b c d e f g h i j k l m n o p q r s t u v w x y z !default;
+$sort-order: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+a b c d e f g h i j k l m n o p q r s t u v w x y z !default;
 
 @function compare($string-a, $string-b, $sort-order) {
-    $string-a: to-lower-case($string-a + unquote(""));
-    $string-b: to-lower-case($string-b + unquote(""));
+    //$string-a: to-lower-case($string-a + unquote(""));
+    //$string-b: to-lower-case($string-b + unquote(""));
 
     @for $i from 1 through min(str-length($string-a), str-length($string-b)) { 
         $char-a: str-slice($string-a, $i, $i); 
@@ -39,5 +40,5 @@ $sort-order: a b c d e f g h i j k l m n o p q r s t u v w x y z !default;
     @return $list;
 }
 
-$list_to_sort: john anna zoe kim felicia carrie;
+$list_to_sort: john anna Zoe kim felicia Carrie;
 @debug "#{sort($list_to_sort, $sort-order)}";
