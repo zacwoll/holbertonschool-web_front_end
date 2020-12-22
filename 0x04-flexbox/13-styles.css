@@ -176,11 +176,10 @@
       ============================= */
   
   ul.row {
-    margin: -1;
+    margin: -1rem;
     padding: 0;
     list-style: none;
   }
-
   .row {
     display: flex;
   }
@@ -194,7 +193,7 @@
   }
   
   .col-1-2 {
-    width: calc((100% / 2) - 2rem)
+    width: calc((100% / 2) - 2rem);
   }
   
   /* Navbar
@@ -207,16 +206,17 @@
     text-align: center;
     display: flex;
   }
-
-  .nav .nav-item + .nav-item {
-    margin: var(--nav-item-margin);
-  }
   
   .nav .nav-item {
     font-family: var(--nav-item-font-family);
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
     letter-spacing: var(--nav-item-letter-spacing);
+    
+  }
+
+  .nav .nav-item + .nav-item {
+    margin: var(--nav-item-margin);
   }
   
   .nav .nav-link {
@@ -249,17 +249,17 @@
   /* Header
       ============================= */
   
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .header {
     padding: var(--header-padding);
          position: relative;
          z-index: 3;
          background: transparent;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   /* Footer
@@ -358,14 +358,14 @@
     color: var(--color-white);
     text-transform: uppercase;
   }
-
-  .hero-homepage {
+  
+  .hero-homepage{
     background-position: 75% 0;
     background-repeat: no-repeat;
     background-size: 90rem auto;
     background-color: #010101;
   }
-  
+
   .section-hero .section-title {
     margin-bottom: 5rem;
   }
@@ -377,8 +377,7 @@
     justify-content: center;
     min-height: 50vh;
   }
-  
-  /* Section Latest news
+  /* Section Latest news 
       ============================= */
 
   .section-latest-news .row {
@@ -394,10 +393,11 @@
 
   /* Section ABOUT US
     ============================= */
-
-  .section-about-us [class*='col-'] {
+  
+  .section-about-us  [class*='col-'] {
     align-self: center;
   }
+
 
   /*** 4. CARD ***/
   
@@ -527,10 +527,9 @@
     z-index: -1;
   }
 
-/*** ARTICLE PAGE ***/
+  /*** ARTICLE PAGE ***/
 /* Section HERO (article)
     ============================= */
-  
   .hero-article {
     background-size: 150rem 100rem;
     background-position: 50% 0;
@@ -542,6 +541,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    left: 0;
     bottom: 0;
     z-index: 0;
   }
@@ -563,62 +563,60 @@
   }
 
   /* Post
-      ============================= */
-  
-  .post {
-    display: flex;
-  }
-
-  .post-content {
-    width: 100%;
-  }
-
-  .post-aside {
-    order: -1;
-    min-width: 20%;
-  }
-
-  /* Post Meta
     ============================= */
+    .post {
+      display: flex;
+    }
 
-  .post-meta-list {
-    flex-direction: column;
-  }
+    .post-content {
+      width: 100%;
+    }
 
-  .post-meta-list strong {
-    color: var(--color-primary);
-    font-size: var(--font-size-small);
-    text-transform: uppercase;
-    display: block;
-  }
+    .post-aside {
+      order: -1;
+      min-width: 20%;
+    }
+    
+  /* Post Meta
+      ============================= */
 
-  .post-meta-list [class*="post-meta-"] {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 0.2rem solid var(--color-light-grey);
-  }
+    .post-meta-list {
+      flex-direction: column;
+    }
 
-  .post-meta-list [class*="post-meta-"]:last-child {
-    border: none;
-    margin-bottom: 3rem;
-  }
+    .post-meta-list strong {
+      color: var(--color-primary);
+      font-size: var(--font-size-small);
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .post-meta-list [class*='post-meta-'] {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.2rem solid var(--color-light-grey);
+    }
+
+    .post-meta-list [class*='post-meta']:last-child {
+      border: none;
+      margin-bottom: 3rem;
+    }
 
   /* Tag list
-    ============================= */
+      ============================= */
+    .tag-list {
+      padding: 0;
+      list-style: none;
+    }
 
-  .tag-list {
-    padding: 0;
-    list-style: none;
-  }
+    .tag-list li {
+      display: inline;
+    }
 
-  .tag-list li {
-    display: inline;
-  }
+    .tag-list li::after {
+      content: ", ";
+    }
 
-  .tag-list li::after {
-    content: ", ";
-  }
-
-  .tag-list li:last-child::after {
-    content: "";
-  }
+    .tag-list li:last-child::after {
+      content: '';
+    }
