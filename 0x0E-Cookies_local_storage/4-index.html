@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Task 4</title>
+    <meta name="description" content="basic html template">
+  </head>
+<body>
+  <div id='login'>
+    <h1>Log into the website</h1>
+    <input type=text id="firstname" placeholder="Firstname">
+    <input type=text id="email" placeholder="Email">
+    <button onClick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+  </div>
+  <div id='welcome'>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script>
+    function setCookies() {
+      var firstname = document.getElementById('firstname').value;
+      var email = document.getElementById('email').value;
+      var expire_days = 10;
+      var d = new Date();
+      d.setTime(d.getTime() + (expire_days*24*60*60*1000));
+      document.cookie = "firstname=" + firstname + ";path=/"
+      document.cookie = "email="+ email + ";path=/"
+      document.cookie = "expires=" + d.toUTCString() + ";path=/";
+      console.log("Cookies Set!");
+      showWelcomeMessageOrForm();
+    }
+
+    function showForm() {
+      document.getElementById('login').style.display = 'block';
+      var node = document.getElementById('welcome');
+      node.innerHTML = "";
+    }
+    function hideForm() {
+      document.getElementById('login').style.display = 'none';
+    }
+    function deleteCookiesAndShowForm() {
+      Object.keys(Cookies.get()).forEach(function(cookieName) {
+          Cookies.remove(cookieName);
+        });
+      showForm();
+    }
+    function showWelcomeMessageOrForm() {
+      if (document.cookie === "") {
+        showForm();
+      }
+      let h = document.createElement('h1');
+      h.innerHTML = `Welcome: ${Cookies.get('firstname')} <a href='' onclick='deleteCookiesAndShowForm()'>(logout)</a>`;
+      document.getElementById('welcome').appendChild(h);
+      hideForm();
+    }
+    function setCookiesAndShowWelcomeMessage() {
+      Cookies.set('firstname', document.getElementById('firstname').value);
+      Cookies.set('email', document.getElementById('email').value);
+      var expire_days = 10;
+      var d = new Date();
+      d.setTime(d.getTime() + (expire_days*24*60*60*1000));
+      Cookies.set('expires', d);
+      showWelcomeMessageOrForm();
+    }
+  </script>
+  <style>
+    button {
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      border: 1px solid grey;
+      padding: 2px 8px;
+    }
+    a {
+      font-style: italic;
+      margin-left: 10px;
+      font-weight: normal;
+    }
+  </style>
+</body>
+</html>

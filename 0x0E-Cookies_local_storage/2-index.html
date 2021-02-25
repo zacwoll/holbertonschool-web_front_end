@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Task 2</title>
+    <meta name="description" content="basic html template">
+  </head>
+<body>
+  <h1>Log into the website</h1>
+  <input type=text id="firstname" placeholder="Firstname">
+  <input type=text id="email" placeholder="Email">
+  <button onClick="setCookies()">Log me in</button>
+  <h1>Cookies</h1>
+  <button onClick="showCookies()">Show the cookies</button>
+  <script>
+    function setCookies() {
+      var firstname = document.getElementById('firstname').value;
+      var email = document.getElementById('email').value;
+      var expire_days = 10;
+      var d = new Date();
+      d.setTime(d.getTime() + (expire_days*24*60*60*1000));
+      document.cookie = "firstname=" + firstname + ";path=/"
+      document.cookie = "email="+ email + ";path=/"
+      document.cookie = "expires=" + d.toUTCString() + ";path=/";
+      console.log("Cookies Set!");
+    }
+    function getCookie(name) {
+      var cookie_name = name + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var c_arr = decodedCookie.split(';');
+      for(var i = 0; i < c_arr.length; i++) {
+        var c = c_arr[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(cookie_name.length, c.length);
+        }
+      }
+      return "";
+    }
+    function showCookies() {
+      let p = document.createElement('p');
+      p.innerHTML = `Email: ${getCookie('email')} - Firstname: ${getCookie('firstname')}`;
+      document.body.appendChild(p);
+    }
+  </script>
+  <style>
+    button {
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      border: 1px solid grey;
+      padding: 2px 8px;
+    }
+  </style>
+</body>
+</html> 
